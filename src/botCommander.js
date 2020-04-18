@@ -25,23 +25,6 @@ bot.on('error', (error) => {
   console.error(error);
 });
 
-
-const allKeyboardOpts ={
-  reply_markup:JSON.stringify({
-    keyboard:[
-      ['/get','/predict'],
-    ],
-    resize_keyboard: true,
-    one_time_keyboard: true,
-  }),
-  parse_mode: 'Markdown',
-  disable_web_page_preview:true,
-};
-
-export function sendMessage(id, message, extraOps){
-  return bot.sendMessage(id, message,  {...allKeyboardOpts, ...extraOps});
-}
-
 let commands = {};
 export function addCommand(command, fn){
   commands[`${command.name}.${command.fn}`] = fn;
@@ -50,6 +33,10 @@ export function addCommand(command, fn){
 
 export function runCommand(command, msg, match, fnName='default'){
   return commands[`${command}.${fnName}`].call(this, msg, match);
+}
+
+export function sendMessage(id, message, extraOps){
+  return bot.sendMessage(id, message);
 }
 
 export default {

@@ -14,14 +14,9 @@ const helpIntro = `Hi, I\'m *TimeStockBot*
 This is what I can do:`;
 
 const examples = `*Examples:*
-/stock fb
 /info fb
-/add fb
-/add aapl
-/graph wix 1y
-/time at 10:00
-/predict 1 7 5 1 h
-For more information on _<TIME>_, see http://bunkat.github.io/later/assets/img/Schedule.png`;
+/get fb
+/graph fb w`;
 
 const helpMessage = [helpIntro, commandsDescription, examples].join('\n');
 

@@ -4,15 +4,17 @@ import dataFetcher from '../utils/dataFetcher';
 import {runPromises} from '../utils/promises';
 
 export function singleStock(msg, match){
-  const fromId = msg.from.id;
+  const fromId = msg.chat.id;
   const stockSign = match[1];
 
+  console.log(msg);
   return sendStockInfo(fromId, stockSign);
 }
 
 export function singleStockCmd(msg, match){
-  const fromId = msg.from.id;
+  const fromId = msg.chat.id;
   const stockSign = match[1];
+  console.log(msg);
   return sendStockInfo(fromId, stockSign);
 }
 
